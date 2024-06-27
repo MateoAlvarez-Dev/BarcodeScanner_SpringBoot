@@ -1,0 +1,14 @@
+{
+  "configurations": [
+    {
+      "type": "java",
+      "name": "Spring Boot-BarcodeapiApplication<barcodeapi>",
+      "request": "launch",
+      "cwd": "${workspaceFolder}",
+      "mainClass": "com.localhost.barcodeserver.barcodeapi.BarcodeapiApplication",
+      "projectName": "barcodeapi",
+      "args": "",
+      "envFile": "${workspaceFolder}/.env"
+    }
+  ]
+}

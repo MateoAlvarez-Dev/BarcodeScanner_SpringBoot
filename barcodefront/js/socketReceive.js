@@ -2,10 +2,6 @@ const socket = io();
 
 let total = 0;
 
-let myProducts = {
-
-};
-
 socket.on("product_scanned", (id) => {
   console.log(id)
   fetch("https://api.escuelajs.co/api/v1/products/" + id)

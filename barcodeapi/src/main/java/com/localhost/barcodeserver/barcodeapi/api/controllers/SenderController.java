@@ -11,7 +11,7 @@ public class SenderController {
 
 
   @MessageMapping("/barcodeSender")
-  @SendTo("/barcodeReceiver")
+  @SendTo("/topic/barcodeReceiver")
   public BarcodeInfo barcodeInfo(BarcodeInfo decoded) throws Exception {
     System.out.println(decoded.getDecodedString());
     return decoded;

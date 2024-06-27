@@ -1,0 +1,8 @@
+{
+  "liveServer.settings.https": {
+    "enable": true,
+    "cert": "/home/riwip3-021/Escritorio/BarcodeScanner_SpringBoot/certs/localhost.pem",
+    "key": "/home/riwip3-021/Escritorio/BarcodeScanner_SpringBoot/certs/localhost.key",
+    "passphrase": "1234"
+  }
+}
