@@ -9,7 +9,7 @@ public class WebConfig implements WebMvcConfigurer {
     @Override
     public void addCorsMappings(CorsRegistry registry) {
         registry.addMapping("/**")
-                .allowedOrigins("*") // Reemplaza con la URL de tu cliente STOMP.js
+                .allowedOriginPatterns("*") // Reemplaza con la URL de tu cliente STOMP.js
                 .allowedMethods("GET", "POST", "PUT", "DELETE")
                 .allowCredentials(true);
     }

@@ -1,11 +1,11 @@
 // SOCKET CONFIG
 
 const client = new StompJs.Client({
-  brokerURL: "ws://192.168.88.17:8080/websocket",
+  brokerURL: globalBarcoderConfig.webSocketURL,
 });
 
 client.onConnect = function (frame) {
-  alert("CONNECTED! :D");
+  alert("CONNECTED TO " + globalBarcoderConfig.webSocketURL);
 };
 
 client.activate();
