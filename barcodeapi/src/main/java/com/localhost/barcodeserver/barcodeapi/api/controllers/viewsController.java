@@ -1,6 +1,7 @@
 package com.localhost.barcodeserver.barcodeapi.api.controllers;
 
-import java.net.InetAddress;
+import java.net.InetSocketAddress;
+import java.net.Socket;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.core.env.Environment;
@@ -23,9 +24,10 @@ public class viewsController {
     public String showViewTest(Model model) {
         String ipAddress = "No se pudo obtener la dirección IP";
 
-        try {
-            InetAddress inetAddress = InetAddress.getLoopbackAddress();
-            ipAddress = inetAddress.getHostAddress();
+        try (Socket socket = new Socket()) {
+            socket.connect(new InetSocketAddress("google.com", 80));
+            ipAddress = socket.getLocalAddress().getHostAddress();
+            socket.close();
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -36,17 +38,45 @@ public class viewsController {
     }
     
     @GetMapping("/scanner")
-    public String showViewScanner() {
+    public String showViewScanner(Model model) {
+
+        String ipAddress = "ERROR: No se pudo obtener la dirección IP";
+
+        try (Socket socket = new Socket()) {
+            socket.connect(new InetSocketAddress("google.com", 80));
+            ipAddress = socket.getLocalAddress().getHostAddress();
+            socket.close();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+        model.addAttribute("localAddress", ipAddress);
+
         return "index";
+
     }
 
     @GetMapping("/receiver")
-    public String showViewReceive() {
+    public String showViewReceive(Model model) {
+
+        String ipAddress = "ERROR: No se pudo obtener la dirección IP";
+
+        try (Socket socket = new Socket()) {
+            socket.connect(new InetSocketAddress("google.com", 80));
+            ipAddress = socket.getLocalAddress().getHostAddress();
+            socket.close();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+        model.addAttribute("localAddress", ipAddress);
+        
         return "receiver";
+        
     }
 
     @GetMapping("/showProducts")
-    public String showViewProducts() {
+    public String showViewProducts(Model model) {
         return "showProducts";
     }
     

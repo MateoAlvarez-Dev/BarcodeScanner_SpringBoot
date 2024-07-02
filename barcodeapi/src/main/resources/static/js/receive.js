@@ -5,7 +5,7 @@ const client = new StompJs.Client({
 let total = 0;
 
 client.onConnect = function (frame) {
-  console.log("Connected!");
+  alert("CONNECTED SUCCESFULLY");
   client.subscribe("/topic/barcodeReceiver", (data) => {
     let id = JSON.parse(data.body).decodedString;
     console.log("Data received: " + id);

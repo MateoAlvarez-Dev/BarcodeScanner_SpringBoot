@@ -5,7 +5,7 @@ const client = new StompJs.Client({
 });
 
 client.onConnect = function (frame) {
-  alert("CONNECTED TO " + globalBarcoderConfig.webSocketURL);
+  alert("CONNECTED SUCCESFULLY");
 };
 
 client.activate();

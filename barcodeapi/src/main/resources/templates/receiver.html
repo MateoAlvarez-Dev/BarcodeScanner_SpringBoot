@@ -7,6 +7,8 @@
     <link rel="stylesheet" href="./css/receiver.css" />
   </head>
   <body>
+    <input type="hidden" id="ipAddress" th:value="${localAddress}">
+
     <h1>Product List</h1>
     <h4>Total Cart Price = $ <span id="total_price"></span></h4>
 
@@ -14,8 +16,16 @@
       <!-- Ejemplo de card para producto -->
     </div>
 
-    <script src="./js/config/config.js"></script>
     <script src="./js/lib/stomp.umd.min.js"></script>
+    <script>
+      window.globalBarcoderConfig = {
+        webSocketURL: "wss://" + document.getElementById("ipAddress").value + ":8080/websocket",
+      };
+
+      if(globalBarcoderConfig.webSocketURL.includes("ERROR")){
+        alert("Error while getting your local ip address.");
+      }
+    </script>
     <script src="./js/receive.js"></script>
   </body>
 </html>
