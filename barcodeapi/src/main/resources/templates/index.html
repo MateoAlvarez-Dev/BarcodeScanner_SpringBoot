@@ -8,7 +8,7 @@
     <link rel="stylesheet" href="./css/style.css" />
   </head>
   <body>
-    <input type="hidden" id="ipAddress" th:value="${localAddress}">
+    <input type="hidden" id="ipAddress" th:value="${localAddress}" />
 
     <main>
       <div id="reader"></div>
@@ -21,9 +21,13 @@
     <script src="./js/lib/stomp.umd.min.js"></script>
     <script>
       window.globalBarcoderConfig = {
-        webSocketURL: "wss://" + document.getElementById("ipAddress").value + ":8080/websocket",
+        webSocketURL:
+          "wss://" +
+          document.getElementById("ipAddress").value +
+          ":8080/websocket",
       };
     </script>
     <script src="./js/index.js"></script>
+    <script src="./js/config/tools.js"></script>
   </body>
 </html>

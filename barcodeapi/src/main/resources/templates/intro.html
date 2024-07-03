@@ -5,35 +5,52 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
     <style>
-      li{
+      li {
         margin-top: 10px;
       }
     </style>
   </head>
   <body>
-    
     <main>
       <div>
         <h1>
-          YOUR LOCAL ADDRESS: <span style="color: rgb(110, 110, 110);" th:text="${localAddress}" />
+          YOUR LOCAL ADDRESS:
+          <span style="color: rgb(110, 110, 110)" th:text="${localAddress}" />
         </h1>
-  
+
+        <p>
+          Join to this link from your cellphone to start scanning: https://<span
+            th:text="${localAddress}"
+          ></span
+          >:8080/scanner
+        </p>
+
         <code>
-          Hello! This is your local address that will make your program available to work, if something fails please be sure you're connected to the <b>WiFi</b>! :D
+          Hello! This is your local address that will make your program
+          available to work, if something fails please be sure you're connected
+          to the <b>WiFi</b>! :D
         </code>
       </div>
-  
-      <hr>
-  
+
+      <hr />
+
       <div>
         <h3>Links</h3>
         <ul>
-          <li><a href="/scanner">SCANNER</a> - Scan products with your cellphone camera</li>
-          <li><a href="/receiver">SHOPPING CART</a> - See the products that you scan in real time!</li>
-          <li><a href="/showProducts">PRODUCT LIST</a> - Example product list to scan, just for testing ;)</li>
+          <li>
+            <a href="/scanner">SCANNER</a> - Scan products with your cellphone
+            camera
+          </li>
+          <li>
+            <a href="/receiver">SHOPPING CART</a> - See the products that you
+            scan in real time!
+          </li>
+          <li>
+            <a href="/showProducts">PRODUCT LIST</a> - Example product list to
+            scan, just for testing ;)
+          </li>
         </ul>
       </div>
-
 
       <div>
         <h3>Libraries Used</h3>
@@ -46,5 +63,6 @@
       </div>
     </main>
 
+    <script src="./js/config/tools.js"></script>
   </body>
 </html>
