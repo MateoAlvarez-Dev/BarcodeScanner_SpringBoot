@@ -4,10 +4,7 @@ const client = new StompJs.Client({
 
 client.onConnect = function () {
   dropAlert("success", "connected succesfully!");
-  client.subscribe("/topic/barcodeReceiver", (data) => {
-    let id = JSON.parse(data.body).decodedString;
-    loadProduct(id);
-  });
+  init();
 };
 
 client.onStompError = function (e) {
@@ -24,6 +21,11 @@ function init(){
   const cart = {}
 
   let total = 0;
+
+  client.subscribe("/topic/barcodeReceiver", (data) => {
+    let id = JSON.parse(data.body).decodedString;
+    loadProduct(id);
+  });
 
   function removeProduct(id){
     if(cart[id]){
