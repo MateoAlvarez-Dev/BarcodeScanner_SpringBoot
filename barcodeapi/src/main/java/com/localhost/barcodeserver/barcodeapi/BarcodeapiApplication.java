@@ -16,7 +16,7 @@ public class BarcodeapiApplication {
 
 	@EventListener(ApplicationReadyEvent.class)
 	public void doSomethingAfterStartup() {
-		System.out.println("\n\n\n[\u001B[32m SERVER STARTED SUCCESFULLY \u001B[0m ] please join to this URL:\u001B[36m https://" + GetLocalAddress.getAddress() + ":8080");
+		System.out.println("\n\n\n[\u001B[32m SERVER STARTED SUCCESFULLY \u001B[0m ] please join to this URL:\u001B[36m https://" + GetLocalAddress.getAddress() + ":8080\n\n\n");
 	}
 
 }

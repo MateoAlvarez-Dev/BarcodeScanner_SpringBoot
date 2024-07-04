@@ -9,23 +9,34 @@
   <body>
     <input type="hidden" id="ipAddress" th:value="${localAddress}">
 
-    <h1>Product List</h1>
-    <h4>Total Cart Price = $ <span id="total_price"></span></h4>
+    <header>
+        <h1>LocalHost</h1>
+        <nav>
+            <a href="#">Inicio</a>
+            <a href="#">Productos</a>
+            <a href="#">Contacto</a>
+            <a href="#">Carrito</a>
+        </nav>
+    </header>
 
-    <div class="container" id="container">
-      <!-- Ejemplo de card para producto -->
-    </div>
+    <main>
+        <h2>Tu Carrito de Compras</h2>
+        <section class="cart" id="cart">
+        </section>
+        <div class="total">
+            <h3>Total: $<span id="total_price">0</span></h3>
+            <button>Proceder al Pago</button>
+        </div>
+    </main>
 
+    <footer>
+        <p>&copy; 2024 Tienda en Línea</p>
+    </footer>
+
+    <!-- LIBS -->
+     
+    <script src="./js/lib/sweetalert2.js"></script>
     <script src="./js/lib/stomp.umd.min.js"></script>
-    <script>
-      window.globalBarcoderConfig = {
-        webSocketURL: "wss://" + document.getElementById("ipAddress").value + ":8080/websocket",
-      };
-
-      if(globalBarcoderConfig.webSocketURL.includes("ERROR")){
-        alert("Error while getting your local ip address.");
-      }
-    </script>
     <script src="./js/receive.js"></script>
   </body>
 </html>

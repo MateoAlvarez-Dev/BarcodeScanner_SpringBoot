@@ -1,11 +1,25 @@
 // SOCKET CONFIG
 
 const client = new StompJs.Client({
-  brokerURL: globalBarcoderConfig.webSocketURL,
+  brokerURL: `wss://${document.getElementById("ipAddress").value}:8080/websocket`
 });
 
 client.onConnect = function (frame) {
-  alert("CONNECTED SUCCESFULLY");
+    const Toast = Swal.mixin({
+    toast: true,
+    position: "top-end",
+    showConfirmButton: false,
+    timer: 3000,
+    timerProgressBar: true,
+    didOpen: (toast) => {
+      toast.onmouseenter = Swal.stopTimer;
+      toast.onmouseleave = Swal.resumeTimer;
+    }
+  });
+  Toast.fire({
+    icon: "success",
+    title: "Connected successfully!"
+  });
 };
 
 client.activate();
